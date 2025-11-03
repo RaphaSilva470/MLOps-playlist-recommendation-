@@ -3,11 +3,17 @@ kind: Deployment
 metadata:
   name: ml-deployment
   namespace: raphaelasilva
+  labels:
+    app: ml-recommendor
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: ml-recommendor
+  template:
+    metadata:
+      labels:
+        app: ml-recommendor
     spec:
       containers:
       - name: ml-playlist-generator
@@ -26,4 +32,3 @@ spec:
         hostPath:
           path: /home/datasets/spotify
           type: Directory
-
