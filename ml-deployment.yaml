@@ -16,6 +16,7 @@ spec:
       containers:
       - name: ml-playlist-generator
         image: raphahausen/ml-playlist-generator:latest
+        imagePullPolicy: Always          
         volumeMounts:
         - name: pickles-volume
           mountPath: /app

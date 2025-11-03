@@ -16,6 +16,7 @@ spec:
       containers:
       - name: frontend
         image: raphahausen/frontend-playlist:latest
+        imagePullPolicy: Always          
         ports:
         - containerPort: 50025
         volumeMounts:
@@ -26,4 +27,3 @@ spec:
         hostPath:
           path: /home/raphaelasilva/project2-pv
           type: DirectoryOrCreate
-
