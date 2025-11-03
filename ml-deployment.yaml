@@ -12,7 +12,7 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: ml-playlist-generator
-        image: raphahausen/ml-playlist-generator:latest
+        image: raphahausen/ml-playlist-generator:0.2
         volumeMounts:
         - name: pickles-volume
           mountPath: /app
