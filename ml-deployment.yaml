@@ -1,18 +1,21 @@
-apiVersion: batch/v1
+apiVersion: apps/v1
 kind: Job
 metadata:
-  name: ml-playlist-job
+  name: ml-deployment
   namespace: raphaelasilva
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-recommendor
   template:
     metadata:
       labels:
         app: ml-recommendor
     spec:
-      restartPolicy: OnFailure
       containers:
       - name: ml-playlist-generator
-        image: raphahausen/ml-playlist-generator:0.latest
+        image: raphahausen/ml-playlist-generator:latest
         volumeMounts:
         - name: pickles-volume
           mountPath: /app
