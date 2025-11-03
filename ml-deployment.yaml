@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-deployment
+  namespace: raphaelasilva
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-recommendor
+    spec:
+      containers:
+      - name: ml-playlist-generator
+        image: raphahausen/ml-playlist-generator:latest
+        volumeMounts:
+        - name: pickles-volume
+          mountPath: /app
+        - name: datasets-volume
+          mountPath: /playlists
+      volumes:
+      - name: pickles-volume
+        hostPath:
+          path: /home/raphaelasilva/project2-pv
+          type: DirectoryOrCreate
+      - name: datasets-volume
+        hostPath:
+          path: /home/datasets/spotify
+          type: Directory
+
