@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: raphahausen/frontend-playlist:0.2
+        image: raphahausen/frontend-playlist:latest
         ports:
         - containerPort: 50025
         volumeMounts:
