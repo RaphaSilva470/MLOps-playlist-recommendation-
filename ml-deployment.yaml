@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ml-pl-deployment
+  name: ml-deployment
   namespace: raphaelasilva
 spec:
   replicas: 1
