@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: playlist-recommendor
-  type: LoadBalancer
+  type: NodePort
   ports:
   - protocol: TCP
     port: 50025

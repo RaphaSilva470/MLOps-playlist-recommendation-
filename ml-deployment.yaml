@@ -1,18 +1,15 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: ml-deployment
+  name: ml-playlist-job
   namespace: raphaelasilva
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: ml-recommendor
   template:
     metadata:
       labels:
         app: ml-recommendor
     spec:
+      restartPolicy: OnFailure
       containers:
       - name: ml-playlist-generator
         image: raphahausen/ml-playlist-generator:latest
