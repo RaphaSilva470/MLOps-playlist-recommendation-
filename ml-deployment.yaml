@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: ml-deployment
   namespace: raphaelasilva
-  labels:
-    app: ml-recommendor
 spec:
   replicas: 1
   selector:
@@ -23,6 +21,9 @@ spec:
           mountPath: /app
         - name: datasets-volume
           mountPath: /playlists
+        - name: dataset-config-volume
+          mountPath: /config
+          readOnly: true
       volumes:
       - name: pickles-volume
         hostPath:
@@ -32,3 +33,6 @@ spec:
         hostPath:
           path: /home/datasets/spotify
           type: Directory
+      - name: dataset-config-volume
+        configMap:
+          name: dataset-config
