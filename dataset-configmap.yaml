@@ -8,4 +8,4 @@ data:
     dataset:
       name: 2023_spotify_ds1.csv
       path: /playlists/2023_spotify_ds1.csv
-      date: 2023-11-01
+      date: 2023-11-03
