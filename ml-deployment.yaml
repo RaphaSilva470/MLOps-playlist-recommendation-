@@ -3,6 +3,7 @@ kind: Job
 metadata:
   name: ml-job
   namespace: raphaelasilva
+  argocd.argoproj.io/sync-options: "CreateOnly=true"  # ArgoCD não tenta recriar
 spec:
   ttlSecondsAfterFinished: 60   # o Job será removido 60s após terminar
   template:
