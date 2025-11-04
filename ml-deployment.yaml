@@ -13,7 +13,7 @@ spec:
       labels:
         app: ml-recommendor
       annotations:
-        dataset-version: "2025-11-04" 
+        dataset-version: "2025-11-03" 
     spec:
       containers:
       - name: ml-playlist-generator
