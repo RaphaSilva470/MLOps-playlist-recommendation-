@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: ml-playlist-generator
-        image: raphahausen/ml-playlist-generator:0.4
+        image: raphahausen/ml-playlist-generator:latest
         imagePullPolicy: Always          
         volumeMounts:
         - name: pickles-volume
