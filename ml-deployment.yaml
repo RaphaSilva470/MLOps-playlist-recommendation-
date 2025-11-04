@@ -13,12 +13,21 @@ spec:
       labels:
         app: ml-recommendor
       annotations:
-        dataset-version: "2025-11-01" 
+        # Alterar este valor (por exemplo, data do dataset) força a recriação do Pod
+        dataset-version: "2025-11-04"
     spec:
+      restartPolicy: Always
       containers:
       - name: ml-playlist-generator
         image: raphahausen/ml-playlist-generator:2.0
-        imagePullPolicy: Always          
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "512Mi"   # memória mínima garantida
+            cpu: "500m"       # 0.5 vCPU garantido
+          limits:
+            memory: "2Gi"     # limite máximo de 2GB para evitar OOMKilled
+            cpu: "1"          # até 1 CPU
         volumeMounts:
         - name: pickles-volume
           mountPath: /app
