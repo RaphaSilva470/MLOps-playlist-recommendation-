@@ -13,11 +13,11 @@ spec:
       labels:
         app: ml-recommendor
       annotations:
-        dataset-version: "2025-11-05" 
+        dataset-version: "2025-11-01" 
     spec:
       containers:
       - name: ml-playlist-generator
-        image: raphahausen/ml-playlist-generator:1.0
+        image: raphahausen/ml-playlist-generator:1.1
         imagePullPolicy: Always          
         volumeMounts:
         - name: pickles-volume
