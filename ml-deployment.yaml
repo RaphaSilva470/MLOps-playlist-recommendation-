@@ -3,9 +3,9 @@ kind: Job
 metadata:
   name: ml-job
   namespace: raphaelasilva
-  argocd.argoproj.io/sync-options: "CreateOnly=true"  # ArgoCD não tenta recriar
+  argocd.argoproj.io/sync-options: "CreateOnly=true"  
 spec:
-  ttlSecondsAfterFinished: 60   # o Job será removido 60s após terminar
+  ttlSecondsAfterFinished: 60   
   template:
     metadata:
       labels:
@@ -13,10 +13,10 @@ spec:
       annotations:
         dataset-version: "2025-11-01"
     spec:
-      restartPolicy: Never       # Job não deve reiniciar em caso de sucesso/falha
+      restartPolicy: Never     
       containers:
       - name: ml-playlist-generator
-        image: raphahausen/ml-playlist-generator:3.4
+        image: raphahausen/ml-playlist-generator:3.5
         imagePullPolicy: Always
         volumeMounts:
         - name: pickles-volume
