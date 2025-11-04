@@ -1,24 +1,22 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: ml-deployment
+  name: ml-job
   namespace: raphaelasilva
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: ml-recommendor
+  ttlSecondsAfterFinished: 60   # o Job será removido 60s após terminar
   template:
     metadata:
       labels:
         app: ml-recommendor
       annotations:
-        dataset-version: "2025-11-02" 
+        dataset-version: "2025-11-01"
     spec:
+      restartPolicy: Never       # Job não deve reiniciar em caso de sucesso/falha
       containers:
       - name: ml-playlist-generator
         image: raphahausen/ml-playlist-generator:3.4
-        imagePullPolicy: Always          
+        imagePullPolicy: Always
         volumeMounts:
         - name: pickles-volume
           mountPath: /app
