@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ml-job
+  generateName: ml-job-
   namespace: raphaelasilva
   argocd.argoproj.io/sync-options: "CreateOnly=true"  
 spec:
