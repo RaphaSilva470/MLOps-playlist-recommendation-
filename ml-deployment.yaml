@@ -16,7 +16,7 @@ spec:
       restartPolicy: Never     
       containers:
       - name: ml-playlist-generator
-        image: raphahausen/ml-playlist-generator:4.2
+        image: raphahausen/ml-playlist-generator:4.3
         imagePullPolicy: Always
         volumeMounts:
         - name: pickles-volume
