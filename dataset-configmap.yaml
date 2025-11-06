@@ -6,4 +6,4 @@ metadata:
 data:
   dataset.yaml: |
     dataset:
-      path: /playlists/2023_spotify_ds2.csv
+      path: /playlists/2023_spotify_ds1.csv
