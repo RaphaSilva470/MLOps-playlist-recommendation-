@@ -10,7 +10,7 @@ spec:
       labels:
         app: ml-recommendor
       annotations:
-        dataset-version: "2025-11-02"
+        dataset-version: "2025-11-01"
     spec:
       restartPolicy: Never     
       containers:
